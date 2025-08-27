@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriLink | Rural Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../img/AgriLink.png" type="image/x-icon">
+  <link rel="stylesheet" href="rural.css">
+</head>
+<body>
+  <header>
+    <h1>Rural Farmer Dashboard</h1>
+    <nav>
+        <a href="dashrural.html">Dashboard</a>
+        <a href="#browse">Browse Listings</a>
+        <a href="#myrequests">My Requests</a>
+    </nav>
+  </header>
+
+  <section id="browse" class="section">
+    <h2>Available Waste Listings</h2>
+    <table class="listing-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Quantity</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="listingTableBody">
+        <tr>
+          <td>Vegetables</td>
+          <td>20kg</td>
+          <td>Gikomba Market</td>
+          <td><button onclick="sendRequest('Vegetables')">Request</button></td>
+        </tr>
+        <tr>
+          <td>Fruit Peels</td>
+          <td>15kg</td>
+          <td>City Park Market</td>
+          <td><button onclick="sendRequest('Fruit Peels')">Request</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="myrequests" class="section">
+    <h2>My Requests</h2>
+    <table class="request-table">
+      <thead>
+        <tr>
+          <th>Requested Waste</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="myRequestsBody">
+        <!-- Farmer requests will show up here -->
+      </tbody>
+    </table>
+  </section>
+
+  <script src="rural.js"></script>
+</body>
+</html>

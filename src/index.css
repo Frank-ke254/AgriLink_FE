@@ -1,0 +1,108 @@
+body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fcfcf8;
+      color: #2d3d29;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #2d3d29;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .cta-button {
+      background-color: #2d6a4f;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 3rem 2rem;
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin: 2rem 0 1.5rem;
+      font-weight: 600;
+    }
+    .how-it-works {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .how-it-works div {
+      flex: 1;
+      max-width: 200px;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      padding: 0 2rem;
+    }
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem;
+      flex: 1;
+      min-width: 280px;
+      max-width: 320px;
+    }
+    .marketplace {
+      background-color: #f5fdf6;
+      padding: 2rem;
+      text-align: center;
+    }
+    .marketplace p {
+      margin: 0.3rem 0;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      background-color: #e6f3e6;
+      padding: 2rem 1rem;
+      font-weight: bold;
+      flex-wrap: wrap;
+    }
+    .stats div {
+      margin: 1rem;
+      font-size: 1.2rem;
+    }
+    .footer-cta {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+    .footer-cta button {
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }

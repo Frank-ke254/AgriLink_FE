@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrilink | Rural Dashboard</title>
+    <link rel="shortcut icon" href="../img/AgriLink.png" type="image/x-icon">
+    <link rel="stylesheet" href="dashrural.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div><strong>AgriLink</strong></div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="rural.html">Requests</a>
+      <a href="index.html">Log Out</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Available Waste Listings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Quantity</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="listingTable">
+        <tr>
+          <td>Vegetables</td>
+          <td>300 kg</td>
+          <td>Green Market, Nairobi</td>
+          <!-- <td><button class="btn" onclick="requestItem(this)">Request</button></td> -->
+           <td><button onclick="sendRequest('Vegetables')">Request</button></td>
+        </tr>
+        <tr>
+          <td>Fruits Peels</td>
+          <td>150 kg</td>
+          <td>City Produce Center</td>
+          <!-- <td><button class="btn" onclick="requestItem(this)">Request</button></td> -->
+           <td><button onclick="sendRequest('Fruit Peels')">Request</button></td>
+        </tr>
+        <tr>
+          <td>Mixed Organic</td>
+          <td>500 kg</td>
+          <td>Urban Waste Hub</td>
+          <!-- <td><button class="btn" onclick="requestItem(this)">Request</button></td> -->
+           <td><button onclick="sendRequest('Mixed Organic')">Request</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="message" id="confirmation"></div>
+  </div>
+
+  <section id="myrequests" class="section">
+    <h2>My Requests</h2>
+    <table class="request-table">
+      <thead>
+        <tr>
+          <th>Requested Waste</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="myRequestsBody">
+        <!-- Farmer requests will show up here -->
+      </tbody>
+    </table>
+  </section>
+
+
+  <script src="dashrural.js"></script>
+</body>
+</html>

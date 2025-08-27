@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrilink | Urban Dashboard</title>
+    <link rel="shortcut icon" href="../img/AgriLink.png" type="image/x-icon">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div><strong>AgriLink</strong></div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="urban.html">Listings</a>
+      <a href="index.html">Log Out</a>
+    </nav>
+  </header>
+
+
+  <section id="listings" class="section">
+    <h2>My Waste Listings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Waste Type</th>
+          <th>Quantity</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vegetables</td>
+          <td>20kg</td>
+          <td>Gikomba Market</td>
+        </tr>
+        <tr>
+          <td>Fruit Peels</td>
+          <td>15kg</td>
+          <td>City Park Market</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="requests" class="section">
+    <h2>Requests from Rural Farmers</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Requested Waste</th>
+          <th>From</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="requestTableBody">
+        <!-- Requests will load here -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- <div class="container">
+    <h2>Submit Food Waste Listing</h2>
+    <form id="wasteForm">
+      <div>
+        <label for="type">Type of Waste</label>
+        <select id="type" required>
+          <option value="">-- Select Type --</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Fruits">Fruits</option>
+          <option value="Grains">Grains</option>
+          <option value="Mixed Organic">Mixed Organic</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="quantity">Quantity (kg)</label>
+        <input type="number" id="quantity" min="1" required />
+      </div>
+
+      <div>
+        <label for="location">Pickup Location</label>
+        <input type="text" id="location" required />
+      </div>
+
+      <div>
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" rows="4"></textarea>
+      </div>
+
+      <button type="submit">Submit Listing</button>
+      <div class="message" id="confirmation"></div>
+    </form>
+  </div> -->
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
