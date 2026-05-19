@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmCycle | My Orders</title>
+    <link rel="shortcut icon" href="../img/FarmCycle.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/css/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside id="sidebar-placeholder">
+        <!-- Sidebar will be here -->
+    </aside>
+
+    <main>
+        <div class="header-flex">
+            <div class="welcome-msg">
+                <h1>My Orders</h1>
+                <p>Track your resource fulfillment and delivery status</p>
+            </div>
+        </div>
+
+        <section class="section-card">
+            <h2><i data-lucide="truck" style="width: 20px;"></i> Active Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Resource</th>
+                        <th>Quantity</th>
+                        <th>Delivery Status</th>
+                        <th>Est. Arrival</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-8821</td>
+                        <td>Organic Compost</td>
+                        <td>500kg</td>
+                        <td><span class="status-badge status-active">In Transit</span></td>
+                        <td>Tomorrow, 10 AM</td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-7742</td>
+                        <td>Fruit Waste Feed</td>
+                        <td>200kg</td>
+                        <td><span class="status-badge status-pending">Processing</span></td>
+                        <td>May 12, 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section-card">
+            <h2><i data-lucide="check-circle" style="width: 20px;"></i> Order History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Resource</th>
+                        <th>Quantity</th>
+                        <th>Date Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-1120</td>
+                        <td>Vegetable Trimmings</td>
+                        <td>1.2 Tons</td>
+                        <td>April 28, 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../src/js/api.js"></script>
+    <script>
+        lucide.createIcons();
+        // Since this page can be accessed by both, we detect the role
+        const renderSidebar = () => {
+            const role = localStorage.getItem("farmcycle_role") || "rural";
+            const sidebar = document.getElementById("sidebar-placeholder");
+            sidebar.innerHTML = `
+                <div class="dash-brand">
+                    <i data-lucide="leaf"></i>
+                    <span>FarmCycle</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="${role === 'urban' ? 'dashboard.html' : 'dashrural.html'}"><i data-lucide="layout-dashboard"></i> ${role === 'urban' ? 'Overview' : 'Farmer Hub'}</a>
+                    <a href="${role === 'urban' ? 'urban.html' : 'rural.html'}"><i data-lucide="${role === 'urban' ? 'list' : 'search'}"></i> ${role === 'urban' ? 'My Listings' : 'Browse Waste'}</a>
+                    <a href="orders.html" class="active"><i data-lucide="shopping-cart"></i> My Orders</a>
+                    <a href="profile.html"><i data-lucide="user"></i> Profile</a>
+                    <a href="index.html" class="logout-link"><i data-lucide="log-out"></i> Log Out</a>
+                </nav>
+            `;
+            lucide.createIcons();
+        };
+        renderSidebar();
+    </script>
+</body>
+</html>
