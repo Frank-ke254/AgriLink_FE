@@ -1,0 +1,27 @@
+/* Reuse main dashboard styles */
+@import url('dashboard.css');
+
+.request-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.request-btn:hover {
+    background: var(--primary-light);
+    transform: scale(1.05);
+}
+
+.listing-badge {
+    background: #e6f3e6;
+    color: var(--primary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}

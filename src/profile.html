@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmCycle | My Profile</title>
+    <link rel="shortcut icon" href="../img/FarmCycle.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/css/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <aside id="sidebar-placeholder">
+        <!-- Sidebar will be here -->
+    </aside>
+
+    <main>
+        <div class="header-flex">
+            <div class="welcome-msg">
+                <h1>Account Settings</h1>
+                <p>Manage your profile information and preferences</p>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem;">
+            <section class="section-card" style="text-align: center;">
+                <div style="width: 100px; height: 100px; background: #f1f5f1; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                    <i data-lucide="user" style="width: 48px; height: 48px;"></i>
+                </div>
+                <h3 id="profileName">Loading...</h3>
+                <p id="profileRole" style="color: #6b705c; font-size: 0.9rem; text-transform: capitalize;">Role</p>
+                <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; text-align: left;">
+                    <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">Account Impact</p>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+                        <span style="color: var(--primary); font-weight: 700;">Sustainable Hero Level 4</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <h2><i data-lucide="settings" style="width: 20px;"></i> Personal Information</h2>
+                <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="font-size: 0.85rem; font-weight: 600;">Full Name</label>
+                        <input type="text" id="inp-name" value="Loading..." style="padding: 0.85rem; border-radius: 10px; border: 1.5px solid #e0e0e0;" />
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="font-size: 0.85rem; font-weight: 600;">Email Address</label>
+                        <input type="email" id="inp-email" value="Loading..." style="padding: 0.85rem; border-radius: 10px; border: 1.5px solid #e0e0e0;" />
+                    </div>
+                    <div class="form-group" style="grid-column: span 2; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="font-size: 0.85rem; font-weight: 600;">Default Location</label>
+                        <input type="text" value="Nairobi, Kenya" style="padding: 0.85rem; border-radius: 10px; border: 1.5px solid #e0e0e0;" />
+                    </div>
+                    <button type="button" class="cta-button" style="border: none; width: fit-content;">Save Changes</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="../src/js/api.js"></script>
+    <script>
+        lucide.createIcons();
+        const renderSidebar = () => {
+            const role = localStorage.getItem("farmcycle_role") || "rural";
+            const sidebar = document.getElementById("sidebar-placeholder");
+            sidebar.innerHTML = `
+                <div class="dash-brand">
+                    <i data-lucide="leaf"></i>
+                    <span>FarmCycle</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="${role === 'urban' ? 'dashboard.html' : 'dashrural.html'}"><i data-lucide="layout-dashboard"></i> ${role === 'urban' ? 'Overview' : 'Farmer Hub'}</a>
+                    <a href="${role === 'urban' ? 'urban.html' : 'rural.html'}"><i data-lucide="${role === 'urban' ? 'list' : 'search'}"></i> ${role === 'urban' ? 'My Listings' : 'Browse Waste'}</a>
+                    <a href="orders.html"><i data-lucide="shopping-cart"></i> My Orders</a>
+                    <a href="profile.html" class="active"><i data-lucide="user"></i> Profile</a>
+                    <a href="index.html" class="logout-link"><i data-lucide="log-out"></i> Log Out</a>
+                </nav>
+            `;
+            lucide.createIcons();
+        };
+        renderSidebar();
+
+        const loadProfile = async () => {
+            try {
+                const me = await window.AgriApi.me();
+                const fullName = localStorage.getItem("farmcycle_full_name") || me.username;
+                document.getElementById("profileName").textContent = fullName;
+                document.getElementById("profileRole").textContent = me.role + " partner";
+                document.getElementById("inp-name").value = fullName;
+                document.getElementById("inp-email").value = me.email;
+                localStorage.setItem("farmcycle_role", me.role);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        loadProfile();
+    </script>
+</body>
+</html>
